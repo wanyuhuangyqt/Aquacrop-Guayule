@@ -1,0 +1,114 @@
+%% ---------- Crop parameters for AquaCropOS ---------- %%
+%% Crop Type ('1': Leafy vegetable, '2': Root/tuber, '3': Fruit/grain) %%
+CropType : 1
+%% Calendar Type ('1': Calendar days, '2': Growing degree days)
+CalendarType : 2
+%% Convert calendar to GDD mode if inputs are given in calendar days ('0': No; '1': Yes) %%
+SwitchGDD : 1 %see the upper limit 35 C
+%% Planting Date (dd/mm) %%
+PlantingDate : 01/05
+%% Latest Harvest Date (dd/mm) %%
+HarvestDate : 31/12
+%% Growing degree/Calendar days from sowing to emergence/transplant recovery %%
+Emergence : 80 %%(use the first month data, from Diaa use the data till May 23, 2019------from Doug use the data from the first day to 7 to 12 weeks)%%
+%% Growing degree/Calendar days from sowing to maximum rooting %%
+MaxRooting : 1400 %%(use April to Aug about 5 months for this time growth)%%
+%% Growing degree/Calendar days from sowing to senescence %%
+Senescence : 1400 %%calculate according to the method and use 2 year%%
+%% Growing degree/Calendar days from sowing to maturity %%
+Maturity : 1700 %%(use till full cover…1 year for transplant…… Diaa about a year data recheck with the data to 100 percent coverage use till the Jan the 2, 2019%%
+%% Growing degree/Calendar days from sowing to start of yield formation %%
+HIstart : 880 %%till we get the seed%%
+%% Duration of flowering in growing degree/calendar days (-999 for non-fruit/grain crops) %%
+Flowering : -999
+%% Duration of yield formation in growing degree/calendar days %%
+YldForm : 750 %%till we get the seed%%
+%% Growing degree day calculation method %%
+GDDmethod : 3 %%base and upper check the way to calculate%%
+%% Base temperature (degC) below which growth does not progress %%
+Tbase : 10
+%% Upper temperature (degC) above which crop development no longer increases %%
+Tupp : 37.78 %%recommended 30 C%%
+
+%% Pollination affected by heat stress (0: No; 1: Yes) %%
+PolHeatStress : 1 %%or 0%%
+
+%% Maximum air temperature (degC) above which pollination begins to fail(32.22-37.78) %% 
+Tmax_up : 32.22
+%% Maximum air temperature (degC) at which pollination completely fails %%
+Tmax_lo : 43.33
+
+%% Pollination affected by cold stress (0: No; 1: Yes) %%
+PolColdStress : 0 %%or 1%%
+
+%% Minimum air temperature (degC) below which pollination begins to fail %%
+Tmin_up : 10
+%% Minimum air temperature (degC) at which pollination completely fails %%
+Tmin_lo : 10
+%% Biomass production affected by temperature stress (0: No; 1: Yes) %%
+BioTempStress : 1
+
+%% Minimum growing degree days (degC/day) required for full biomass production %%
+GDD_up : 1 %%try 0 to 4%%
+%% Growing degree days (degC/day) at which no biomass production occurs %%
+GDD_lo : -2.5 %%try -2.5 or 12.5 for cold and hot….check with the program but we guess it is cold%%
+
+%% Shape factor describing the reduction in biomass production for insufficient growing degree days %%
+fshape_b : 13.8135 %%do not know but use the same for root, canopy cover and height but not the same for the biomass%%
+%% Initial percentage of minimum effective rooting depth %%
+PctZmin : 70 %% to 75%%
+
+%% Minimum effective rooting depth (m) %%
+Zmin : 0.3
+%% Maximum rooting depth (m) %%
+Zmax : 2.1
+%% Shape factor describing root expansion %%
+fshape_r : 1.3 %%do not know but use the same for root, canopy cover and height but not the same for the biomass%%
+
+%% Shape factor describing the effects of water stress on root expansion %%
+fshape_ex : -6 %%we do not know so use the default%%
+
+%% Maximum root water extraction at top of the root zone (m3/m3/day) %%
+SxTopQ : 0.0104 %%maybe try to ask Dr. Gary or / Kelly%%
+%% Maximum root water extraction at the bottom of the root zone (m3/m3/day) %%
+SxBotQ : 0.0026 %%maybe try to ask Dr. Gary or / Kelly%%
+
+%% Exponent parameter for adjustment of Kcx once senescence is triggered %%
+a_Tr : 1
+
+%% Soil surface area (cm2) covered by an individual seedling at 90% emergence %%
+SeedSize : 6.5 %%ask Diaa%%
+%% Number of plants per hectare %%
+PlantPop : 27000 %%for Doug data, and For Diaa data is 48000%%
+
+%% Minimum canopy size below which yield formation cannot occur %%
+CCmin : 0.1
+
+%% Maximum canopy cover (fraction of soil cover) %%
+CCx : 1
+%% Canopy decline coefficient (fraction per GDD) %%
+CDC : 0.01
+%% Canopy growth coefficient (fraction per GDD) %%
+CGC : 0.0125 %%see the plant height data and calculate the heat unit for a couple of month and calculate the percentage of changes per heat unit thermal heat unit GDD%%
+%% Crop coefficient when canopy growth is complete but prior to senescence %%
+Kcb : 1.3
+%% Decline of crop coefficient due to ageing (%/day) %%
+fage : 0 %%go down in the winter but catch up in summer and increase in the second year so?.overall it goes up%%
+%% Water productivity normalized for ET0 and C02 (g/m2) %%
+WP : 33.7 %%maybe just follow this value? it is pretty complex%%
+%% Adjustment of water productivity in yield formation stage (% of WP) %%
+WPy : 100 %%maybe just follow this value? it is pretty complex%%
+%% Crop co2 sink strength coefficient %%
+fsink : 0.2 %%maybe just follow this value? it is pretty complex%%
+
+%% WP co2 adjustment parameter given by Steduto et al. 2007 %%
+bsted : 0.000138 %%maybe just follow this value? it is pretty complex%%
+%% WP co2 adjustment parameter given by FACE experiments %%
+bface : 0.001165 %%maybe just follow this value? it is pretty complex%%
+
+%% Reference harvest index %%
+HI0 : 0.06 %%to 0.07 for rubber/biomass (do it in to a separate model?.%of rubber%%
+%% Initial harvest index %%
+HIini : 0.01
+%% Possible increase of harvest index due to water stress before flowering (%) %%
+dHI_pre : 0
